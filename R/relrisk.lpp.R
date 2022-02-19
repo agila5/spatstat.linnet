@@ -297,7 +297,7 @@ bw.relrisklpp <- function(X, ...,
       p <- relrisk(X, si, at="points", distance="euclidean", casecontrol=FALSE)
       pobs <- p[witch]
       cv[i] <- switch(method,
-                      likelihood=log(prod(pobs)),
+                      likelihood=sum(log(pobs)),
                       leastsquares=sum((1-pobs)^2))
       if(verbose) pstate <- progressreport(i, nh, state=pstate)
     }
